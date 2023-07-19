@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <link rel="stylesheet" href="fontawesome-free-6.2.1-web/css/all.min.css">
+  <title>Document</title>
+</head>
+
+<body ng-app="myapp">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container" ng-controller="myCtrl">
+      <a class="navbar-brand" href="#">
+        <img src="IMG/z4063183729339_7aadf04e68b7092710c333e15a70f246.jpg" alt="" width="100%" height="50%">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav m-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Thương hiệu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Nam</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">nữ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">cặp đôi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">phụ kiện</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">dịch vụ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Lienhe.html">liên hệ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span>{{cart.length}}</span>
+            </a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="px-2 search" ng-model="search" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn0" ng-click="searchSP()" data-toggle="modal" data-target="#exampleModal" type="submit">Search</button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div  class="row">
+                        <div class="card m-3" ng-repeat="p in products | filter: search">
+                            <div class="card card-primary text-center"></div>
+                            <div class="card-header">{{p.name}}</div>
+                            <div class="card-body">
+                                <a href="#!detail/{{$index}}"><img src="{{p.Image}}" class="img-fluid"></a>
+                            </div>
+                            <div class="card-footer">${{p.Price}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div>
+    <div>
+      <div ng-view></div>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="footer">
+    <div class="container py-3">
+      <div class="row">
+        <div class="col-md-3">
+          <h3 style="color: white;">tổng đài: 19001001</h3>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d244.89334998446876!2d106.63273882665479!3d10.865259192953532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1674982421048!5m2!1svi!2s"
+            width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-md-3">
+          <h3 style="color: white;">HƯỚNG DẪN</h3>
+          <p>
+            Thông Tin Liên Hệ<br>
+            Hỏi Đáp - Góp Ý <br>
+            Chính Sách Đổi Hàng<br>
+            Chính Sách Bảo Hành<br>
+            Thanh toán & Trả góp<br>
+            Liên Hệ Đối Tác Doanh Nghiệp<br>
+            Vận Chuyển & Giao Nhận
+          </p>
+        </div>
+        <div class="col-md-3">
+          <h3 style="color: white;">THAM KHẢO</h3>
+          <p>
+            Thông Báo Mới <br>
+            Điều Khoản Sử Dụng<br>
+            Bảo Mật Thông Tin<br>
+            Ngưng Hiện Quảng Cáo<br>
+            <img src="IMG/zyro-image.png" class="img-fluid" alt="">
+          </p>
+        </div>
+        <div class="col-md-3">
+          <h3 style="color: white;">chứng nhận</h3>
+          <img src="IMG/2-removebg-preview.png" class="img-fluid" alt="">
+          <img src="IMG/1-removebg-preview.png" class="img-fluid" alt="">
+        </div>
+      </div>
+      <div class="row py-3">
+        <div class="col-8 m-auto">
+          <div class="row d-flex justify-content-center">
+            <div class="col-2">
+              <button type="button" class="btn btn-outline-secondary">Tp.hcm</button>
+            </div>
+            <div class="col-2">
+              <button type="button" class="btn btn-outline-secondary">hà nội</button>
+            </div>
+            <div class="col-2">
+              <button type="button" class="btn btn-outline-secondary">biên hoà</button>
+            </div>
+            <div class="col-2">
+              <button type="button" class="btn btn-outline-secondary">đà nẵng</button>
+            </div>
+            <div class="col-2">
+              <button type="button" class="btn btn-outline-secondary">vũng tàu</button>
+            </div>
+            <div class="col-2">
+              <button type="button" class="btn btn-outline-secondary">cần thơ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="final">
+      <hr style="color: white; height: 3px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-7">
+            <p style="font-size: 14px; font-family: 'Raleway', sans-serif;">
+              Copyright by Đồng Hồ Hải Triều® Since 1991Z <br>
+              Chủ sở hữu Website: Đặng Thanh Hải - Số: 41A8034825 - Ngày Cấp: 01/04/2014 <br>
+              Góp ý & Khiếu nại: ceo@donghohaitrieu.com <br>
+            </p>
+          </div>
+          <div class="col-5">
+            <img src="IMG/fn.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var indexCart = 0;
+    var app = angular.module("myapp", ["ngRoute"]);
+    app.controller("myCtrl", function ($scope, $rootScope, $routeParams, $http) {
+      //Thêm sản phẩm
+      $scope.addCart = function (p) {
+        if (typeof $rootScope.cart == 'undefined') {
+          $rootScope.cart = [];
+        };
+        if ($rootScope.cart.filter(i => i.id == p.id).length == 0) {
+          $rootScope.cart.push(p);
+          $rootScope.cart[indexCart].quantity = 1;
+          indexCart++;
+        }
+      }
+      $rootScope.sumMoney = 0;
+      //Tính tổng tiền bên giỏ hàng
+      if (typeof $rootScope.cart != 'undefined') { //Có giỏ hàng mới tính tổng
+        for (var i = 0; i < $rootScope.cart.length; i++) {
+          $rootScope.sumMoney = $rootScope.sumMoney + $rootScope.cart[i].quantity * $rootScope.cart[i].Price;
+        }
+      }
+      //Nhấn nút Cộng để thêm sản phẩm
+      $scope.addClick = function (index) {
+        $rootScope.cart[index].quantity = $rootScope.cart[index].quantity + 1;
+        if (typeof $rootScope.cart != 'undefined') {
+          $rootScope.sumMoney = 0;
+          for (var i = 0; i < $rootScope.cart.length; i++) {
+            $rootScope.sumMoney = $rootScope.sumMoney + $rootScope.cart[i].quantity * $rootScope.cart[i].Price;
+          }
+        }
+      }
+      //nhấn nút trừ để trừ sản phẩm
+      $scope.subClick = function (index) {
+        if ($rootScope.cart[index].quantity > 1)
+          $rootScope.cart[index].quantity = $rootScope.cart[index].quantity - 1
+        if (typeof $rootScope.cart != 'undefined') {
+          $rootScope.sumMoney = 0;
+          for (var i = 0; i < $rootScope.cart.length; i++) {
+            $rootScope.sumMoney = $rootScope.sumMoney + $rootScope.cart[i].quantity * $rootScope.cart[i].Price;
+          }
+        }
+      }
+      //Xóa sản phẩm trong giỏ hàng
+      $scope.delProduct = function (index) {
+        $rootScope.cart.splice(index, 1);
+        if (typeof $rootScope.cart != 'undefined') {
+          $rootScope.sumMoney = 0;
+          for (var i = 0; i < $rootScope.cart.length; i++) {
+            $rootScope.sumMoney = $rootScope.sumMoney + $rootScope.cart[i].quantity * $rootScope.cart[i].Price;
+          }
+        }
+      }
+      $scope.products = [];
+      $http.get('products.json').then(function (reponse) {
+        $scope.products = reponse.data;
+        $scope.index = $scope.products.findIndex(record => record.id == $routeParams.url)
+      })
+      //Truyền tham số index từ trang chủ đến trang sản phẩm chi tiết
+      $scope.index = $routeParams.url;
+      //Tăng dần giảm dần
+      $scope.sort = 'Price';
+      $scope.tang = function () {
+        $scope.sort = 'Price';
+      }
+      $scope.giam = function () {
+        $scope.sort = '-Price';
+      }
+      $scope.so = 4;
+      $scope.dung = true;
+      $scope.xemthem = function () {
+        $scope.so = 8;
+        $scope.dung = false;
+      }
+      $scope.thugon = function () {
+        $scope.so = 4;
+        $scope.dung = true;
+      }
+    });
+    app.config(function ($routeProvider) {
+      $routeProvider
+        .when("/detail/:url", {
+          templateUrl: "detailProduct.html?" + Math.random(),
+          controller: "myCtrl"
+        })
+        .when("/cart", {
+          templateUrl: "cart.html?" + Math.random(),
+          controller: "myCtrl"
+        })
+        .when("/about", {
+          templateUrl: "about.html?" + Math.random(),
+          controller: "myCtrl"
+        })
+        .when("/contact", {
+          templateUrl: "contact.html?" + Math.random(),
+          controller: "myCtrl"
+        })
+        .otherwise({
+          templateUrl: "listProduct.html",
+          controller: "myCtrl"
+        })
+    });
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

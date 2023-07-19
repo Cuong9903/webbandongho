@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+<body>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="IMG/bn1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="IMG/bn2.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="icon">
+        <div class="container py-4">
+          <div class="row">
+            <div class="col-lg-9 m-auto">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-5 ml-3">
+                  <img src="IMG/ic1.jpg" class="img-fluid" alt="">
+                  <img src="IMG/ic2.jpg" class="img-fluid" alt="">
+                  <img src="IMG/ic3.jpg" class="img-fluid" alt="">
+                  <img src="IMG/ic4.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="col-md-5 mr-3">
+                  <img src="IMG/ic5.jpg" class="img-fluid" alt="">
+                  <img src="IMG/ic6.jpg" class="img-fluid" alt="">
+                  <img src="IMG/ic7.jpg" class="img-fluid" alt="">
+                  <img src="IMG/ic8.jpg" class="img-fluid" alt="">
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="newbn">
+        <div class="container">
+          <div class="row">
+            <div class="col-8">
+              <a href="#">
+                <img src="IMG/bn3.jpg" width="100%" class="img-fluid" alt="">
+              </a>
+            </div>
+            <div class="col-4">
+              <div class="row">
+                <div class="col-6">
+                  <a href="#">
+                    <img src="IMG/h1.jpg" class="img-fluid" alt="">
+                  </a>
+                </div>
+                <div class="col-6">
+                  <a href="#">
+                    <img src="IMG/h2.jpg" class="img-fluid" alt="">
+                  </a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 mt-4">
+                  <a href="#">
+                    <img src="IMG/h3.jpg" class="img-fluid" alt="">
+                  </a>
+                </div>
+                <div class="col-6 mt-4">
+                  <a href="#">
+                    <img src="IMG/h4.jpg" class="img-fluid" alt="">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="icon2">
+        <div class="container py-4">
+          <div class="row text-center mt-2">
+            <div class="col-6"><a href="#"><img src="IMG/i1.jpg" class="img-fluid" alt=""></a></div>
+            <div class="col-6"><a href="#"><img src="IMG/i2.jpg" class="img-fluid" alt=""></a></div>
+          </div>
+          <div class="row text-center mt-3">
+            <div class="col-6"><a href="#"><img src="IMG/i3.jpg" class="img-fluid" alt=""></a></div>
+            <div class="col-6"><a href="#"><img src="IMG/i4.jpg" class="img-fluid" alt=""></a></div>
+          </div>
+        </div>
+      </div>
+      <div class="product-man">
+        <div class="container py-4">
+          <div class="row py-4">
+            <div class="col-md-3 m-auto text-center">
+              <h5>đồng hồ nam bán chạy</h5>
+            </div>
+          </div>
+          <button class="btn btn-primary" ng-click="tang()">Tăng dần</button>
+          <button class="btn btn-primary" ng-click="giam()">Giảm dần</button>
+          <div class="row">
+            <div class="col-md-3 text-center" ng-repeat="p in products | filter: {id:'nam'} | orderBy : sort | limitTo: so">
+              <div class="card border-0 mb-2" >
+                <a style="text-decoration: none" href="#!detail/{{p.id}}">
+                  <div class="card-body">
+                    <img src="{{p.Image}}" width="250px" class="img-fluid" alt="">
+                  </div>
+                  <h6>{{p.name}}</h6>
+                </a>
+                <p>{{p.Price|number:0}} ₫</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button ng-if="dung" ng-click="xemthem()" type="button" class="btn btn-primary" ><b>Xem thêm</b></button>
+            <button ng-if="!dung" ng-click="thugon()" type="button" class="btn btn-primary" ><b>Thu gọn</b></button> 
+          </div>
+        </div>
+      </div>
+      <div class="product-women">
+        <div class="container py-4">
+          <div class="row py-4">
+            <div class="col-md-3 m-auto text-center">
+              <h5>đồng hồ nữ bán chạy</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 text-center" ng-repeat="p in products | filter: {id:'nu'} ">
+              <div class="card border-0 mb-2" >
+                <a style="text-decoration: none" href="#!detail/{{p.id}}">
+                  <div class="card-body">
+                    <img src="{{p.Image}}" width="250px" class="img-fluid" alt="">
+                  </div>
+                  <h6>{{p.name}}</h6>
+                </a>
+                <p>{{p.Price|number:0}} ₫</p>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <div class="product-hot">
+        <div class="container py-4">
+          <div class="row py-4">
+            <div class="col-md-3 m-auto text-center">
+              <h5>Trang sức bán chạy</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 text-center" ng-repeat="p in products | filter: {id:'hot'} ">
+              <div class="card border-0 mb-2" >
+                <a style="text-decoration: none" href="#!detail/{{p.id}}">
+                  <div class="card-body">
+                    <img src="{{p.Image}}" width="250px" class="img-fluid" alt="">
+                  </div>
+                  <h6>{{p.name}}</h6>
+                </a>
+                <p>{{p.Price|number:0}} ₫</p>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <div class="newbg">
+        <div class="container py-4">
+          <div class="row">
+            <div class="col">
+              <img src="IMG/bg.jpg" width="1288px" class="img-fluid" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="brand">
+        <div class="container">
+          <div class="row">
+            <div class="col text-center">
+              <hr><h3>thương hiệu nổi tiếng</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (1).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (2).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (3).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (4).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (5).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (6).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (7).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (8).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (9).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (10).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (11).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand (12).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="brand-sw">
+        <div class="container">
+          <div class="row">
+            <div class="col text-center">
+              <hr><h3>thương hiệu thuỵ sĩ</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (1).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (2).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (3).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (4).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (5).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (6).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (7).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (8).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (9).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (10).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (11).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+            <div class="col-2">
+              <a href="#">
+                <img src="IMG/brand-sw (12).jpg" width="100%" class="img-fluid"  alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="new-watch">
+        <div class="container py-4">
+          <div class="row py-4">
+            <div class="col-md-3 m-auto text-center">
+              <h5>new watches</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 text-center" ng-repeat="p in products | filter: {id:'new'} ">
+              <div class="card border-0 mb-2" >
+                <a style="text-decoration: none" href="#!detail/{{p.id}}">
+                  <div class="card-body">
+                    <img src="{{p.Image}}" width="250px" class="img-fluid" alt="">
+                  </div>
+                  <h6>{{p.name}}</h6>
+                </a>
+                <p>{{p.Price|number:0}} ₫</p>
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+      <div class="news">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-7">
+              <h3>tin tức hay về đồng hồ</h3>
+            </div>
+            <div class="col-5">
+              <h3>có thể bạn sẽ thích</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <img src="IMG/f.png" width="100%" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-5">
+              <p style="font-size: 15px;">
+                <h6>
+                  ĐỒNG HỒ CASIO LINEAGE GIÁ BAO NHIÊU, CÓ TỐT KHÔNG, CÁCH DÙNG <br>
+                </h6>
+                Posted on 25/01/2023 at 8:00 sáng by Đồng Hồ Hải Triều <br><br>
+                Ngày nay, các hãng đồng hồ lớn trên đều theo đuổi sứ mệnh bảo vệ môi trường thông qua việc sử dụng năng lượng mặt trời cho sản phẩm của họ. Casio Lineage là một trong số những cỗ máy đó. Hãy cùng tìm hiểu thêm về loại đồng hồ này nhé. <br>  MỤC LỤC › Đồng hồ Casio Lineage và những điều đặc biệt…
+              </p>
+            </div>
+            <div class="col-md-4">
+              <div class="col">
+                <p style="font-size: 14px;">-Đồng hồ Casio Lineage giá bao nhiêu, có tốt không, cách dùng <br>
+                  -Review đồng hồ Seiko Tank có gì đặc biệt, giá bao nhiêu?<br>
+                  -Đồng hồ Grand Seiko Snowflake là gì, có gì đặc biệt, giá bán<br>
+                  -Hải Triều đã mở cửa toàn bộ cửa hàng từ Mùng 2 Tết<br>
+                  -Review đồng hồ Casio Duro được Bill Gates ưu ái sử dụng<br>
+                  -Có nên mua đồng hồ Rado cá ngựa cổ ở thời điểm hiện tại?<br>
+                  -Đánh giá đồng hồ Samsung Galaxy Watch 4 Classic từ A-Z<br>
+                  -Thông báo: Hải Triều bán xuyên Tết nguyên đán 2023<br>
+                  -Ban lãnh đạo Hải Triều gửi lời cảm ơn đến quý khách hàng!<br>
+                  -Các bệnh về mắt phổ biến, nguyên nhân và cách khắc phục</p>
+              </div>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
+      <div class="my-customer">
+        <div class="container">
+          <div class="row text-center">
+            <h3>khách hàng của chúng tôi</h3>
+          </div>
+          <div class="row d-flex justify-content-center">
+              <div class="col-1"><img src="IMG/kh (1).jpg" class="img-fluid" alt=""></div>
+              <div class="col-1"><img src="IMG/kh (2).jpg" class="img-fluid" alt=""></div>
+              <div class="col-1"><img src="IMG/kh (3).jpg" class="img-fluid" alt=""></div>
+              <div class="col-1"><img src="IMG/kh (4).jpg" class="img-fluid" alt=""></div>
+              <div class="col-1"><img src="IMG/kh (6).jpg" class="img-fluid" alt=""></div>
+              <div class="col-1"><img src="IMG/kh (7).jpg" class="img-fluid" alt=""></div>
+              <div class="col-1"><img src="IMG/kh (8).jpg" class="img-fluid" alt=""></div>
+              <div class="col-1"><img src="IMG/kh (5).jpg" class="img-fluid" alt=""></div>
+          </div>
+        </div>
+      </div>
+      <div class="in4">
+        <div class="container">
+          <hr>
+          <div class="row">
+            <div class="col-5">
+              <p style="font-size: 25px; font-family:  'PT Serif', serif;">
+                SOCIAL PAGE: 
+                <a href="https://www.facebook.com/profile.php?id=100027302631814"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.youtube.com/channel/UCF0zxto3r2NckAOdsGNKOqw"><i class="fab fa-youtube"></i></a>
+                <a href=""><i class="fab fa-google-plus"></i></a>
+                <a href="https://www.instagram.com/chappie.pc/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@pdhcyong"><i class="fab fa-tiktok"></i></a>
+              </p>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Hình ảnh</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+            <th> </th>
+        </tr>
+        <tr ng-repeat="c in cart track by $index">
+            <td>{{c.name}}</td>
+            <td><img width="100px" src="{{c.Image}}" alt=""></td>
+            <td>{{c.Price|number:0}} ₫</td>
+            <td><span class="btn" ng-click="subClick($index)">-</span> {{c.quantity}} <span class="btn" ng-click="addClick($index)">+</span></td>
+            <td>{{c.Price*c.quantity|number:0}}</td>
+            <td> <span class="btn" ng-click="delProduct($index)">Xóa</span></td>
+        </tr>
+        <tr>
+            <td colspan="4">Tổng tiền:</td>
+            <td colspan="2">{{sumMoney|number:0}}</td>
+        </tr>
+    </table>
+    <a href="#!/" style="text-transform: uppercase; color: black; text-decoration: none;"><p>Mua các sản phẩm khác</p></a>
+    </div>
+</body>
+</html>

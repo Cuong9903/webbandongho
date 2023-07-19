@@ -1,0 +1,21 @@
+.lienhe{
+    background-color: #ffde94;
+}
+.form-control{
+    border: 1px solid #FFFACD;
+    border-radius: 10px;
+}
+.btn-submit{
+    margin-top: 25px;
+    padding: 0 20px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #B32D53;
+    color: aliceblue;
+    border: 1px solid #B32D53;
+    border-radius: 10px;
+}
+.btn{
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
